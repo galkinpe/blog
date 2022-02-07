@@ -16,9 +16,10 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug":("title",)}
-    list_display = ('id','title','slug','category','created_at','updated_at', 'get_photo')
+    list_display = ('id','title','slug','category','created_at','updated_at', 'get_photo', 'views')
     list_display_links =('id','title')
     search_field =('title')
+    list_filter = ('category', 'tags')
 
     def get_photo(self, obj):
         if obj.photo:
