@@ -16,6 +16,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug":("title",)}
+    save_as = True
     list_display = ('id','title','slug','category','created_at','updated_at', 'get_photo', 'views')
     list_display_links =('id','title')
     search_field =('title')
